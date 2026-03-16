@@ -1,0 +1,16 @@
+{
+  "name": "02-rxjs-operators",
+  "version": "1.0.0",
+  "description": "**Concept:** [../../02-rxjs-ngrx-performance.md](../../02-rxjs-ngrx-performance.md)",
+  "main": "operators-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "rxjs": "^7.8.2"
+  }
+}
