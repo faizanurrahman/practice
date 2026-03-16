@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build and runtime
+dist/
+out/
+build/
+.angular/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE and editors
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and cache
+*.log
+npm-debug.log*
+.npm/
+.cache/
+
+# Test and coverage
+coverage/
+.nyc_output/
+
+# Optional: if this repo is the root and you have nested repos (e.g. dsa-mastery with its own .git),
+# keep their .git and use their .gitignore; this file covers the rest of practice/.
