@@ -16,27 +16,9 @@ const obj = {
   say() {
     console.log("say this:", this?.name);
   },
-  hello: function () {
-    console.log("hello this:", this?.name);
-  },
-  bye: () => {
-    console.log("bye this:", this?.name);
-  },
-  world() {
-    console.log("world this:", this?.name);
-    let arrow = () => {
-      console.log("arrow this:", this?.name);
-    };
-
-    return arrow;
-  },
 };
-const arrow = obj.world();
-arrow(); // ObjectName
-obj.say(); // Obj
-obj.bye(); // undefined
-// obj.world(); // ObjectName, ObjectName, ObjectName
-obj.hello(); // ObjectName
+
+obj.say(); // ObjectName
 
 console.log("\n=== 3. Explicit (call) ===");
 function greet() {
@@ -60,3 +42,12 @@ const outer = {
   },
 };
 outer.run(); // Outer (arrow inherits run's this)
+
+function Test() {
+  let arrow = () => {
+    console.log("arrow this:", this?.name);
+  };
+  return arrow;
+}
+const test = Test().bind({ name: "Faizan" });
+test(); // Test
