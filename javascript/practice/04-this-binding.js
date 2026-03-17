@@ -12,12 +12,31 @@ defaultThis(); // undefined in strict
 
 console.log("\n=== 2. Implicit (method call) ===");
 const obj = {
-  name: "Obj",
+  name: "ObjectName",
   say() {
     console.log("say this:", this?.name);
   },
+  hello: function () {
+    console.log("hello this:", this?.name);
+  },
+  bye: () => {
+    console.log("bye this:", this?.name);
+  },
+  world() {
+    console.log("world this:", this?.name);
+    let arrow = () => {
+      console.log("arrow this:", this?.name);
+    };
+
+    return arrow;
+  },
 };
+const arrow = obj.world();
+arrow(); // ObjectName
 obj.say(); // Obj
+obj.bye(); // undefined
+// obj.world(); // ObjectName, ObjectName, ObjectName
+obj.hello(); // ObjectName
 
 console.log("\n=== 3. Explicit (call) ===");
 function greet() {
