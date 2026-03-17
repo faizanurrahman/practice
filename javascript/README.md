@@ -13,7 +13,7 @@
 7. **06-event-loop-tasks-microtasks.md** — Deep dive into tasks vs microtasks and precise ordering  
 8. **07-ui-rendering-and-event-loop.md** — Where rendering fits in the loop; how scheduling affects UX  
 9. **06-prototypes-and-inheritance.md** — `[[Prototype]]`, `this` rules, `class` sugar  
-10. **07-async-patterns.md** — Callbacks, Promises, async/await, Observables preview, when to use each  
+10. **07-async-patterns.md** — Promises and Async/Await: states, microtasks, chaining, async/await, sequential vs parallel (Promise.all/allSettled), pitfalls, debugging; Observables preview and when to use each  
 11. **08-performance-fundamentals.md** — Event delegation, debounce/throttle, reflow/repaint  
 
 **Prerequisites:** Basic JavaScript syntax (variables, functions, conditionals).  
@@ -32,7 +32,7 @@
 | 06 | Event loop deep dive: tasks vs microtasks, ordering, starvation | "Explain why Promise.then runs before setTimeout(0)"; "Diagnose microtask starvation" |
 | 07 | Rendering and event loop: frames, long tasks, microtasks vs paint | "Why is the UI janky?"; "How to break work into chunks to keep 60fps?" |
 | 06 (prototypes) | [[Prototype]] chain, four rules of `this`, class sugar | "How does property lookup work?"; "What is class?" |
-| 07 (async patterns) | Promises, async/await, Observables preview, when to use each | "Promise vs Observable?"; "When async/await vs RxJS?" |
+| 07 (async patterns) | Promises and Async/Await: states, microtasks, chaining, sequential vs parallel, pitfalls, debugging; Observables preview | "Promise vs Observable?"; "When async/await vs RxJS?"; "Promise.all vs allSettled?" |
 | 08 | Event delegation, debounce/throttle, reflow/repaint | "What is event delegation?"; "Debounce vs throttle?" |
 
 ## Concept → practice map
@@ -48,7 +48,7 @@
 | 06-event-loop-tasks-microtasks.md | `practice/03-event-loop-order.js`, `practice/03-event-loop-interview.js` | Use the same scripts for deeper reasoning about tasks vs microtasks and starvation |
 | 07-ui-rendering-and-event-loop.md | (browser DevTools) | Record performance traces; reason about long tasks and microtask impact on frames |
 | 06-prototypes-and-inheritance.md | `practice/04-this-binding.js`, `practice/06-prototype-chain.js` | Run this binding; run prototype/class demo |
-| 07-async-patterns.md | `practice/07-promises-async-await.js`, `practice/07-observable-preview.js` | Run Promise/async and Observable preview |
+| 07-async-patterns.md | `practice/07-promises-async-await.js`, `practice/07-observable-preview.js` | Run Promise/async (includes microtask order, parallel vs sequential, Observables teaser) and full Observable preview |
 | 08-performance-fundamentals.md | `practice/08-debounce-throttle.js` | Run; observe debounce vs throttle timing |
 
 Run any practice file with: `node practice/<filename>.js` (from this directory).
