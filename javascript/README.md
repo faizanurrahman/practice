@@ -15,6 +15,9 @@
 9. **06-prototypes-and-inheritance.md** — `[[Prototype]]`, `this` rules, `class` sugar  
 10. **07-async-patterns.md** — Promises and Async/Await: states, microtasks, chaining, async/await, sequential vs parallel (Promise.all/allSettled), pitfalls, debugging; Observables preview and when to use each  
 11. **08-performance-fundamentals.md** — Event delegation, debounce/throttle, reflow/repaint  
+12. **09-objects-reference-mutation-copying.md** — Value vs reference, shallow/deep copy, mutation bugs in UI, immutable updates, reference stability (OnPush)  
+13. **11-modules.md** — Named vs default exports, dynamic import, hoisting, cyclic dependencies, architecture  
+14. **12-memory-management-gc.md** — Reachability, GC, memory leak patterns, WeakMap/WeakSet, DevTools  
 
 **Prerequisites:** Basic JavaScript syntax (variables, functions, conditionals).  
 **Time:** ~2–3 weeks total (30–45 min per module read + practice).
@@ -34,6 +37,9 @@
 | 06 (prototypes) | [[Prototype]] chain, four rules of `this`, class sugar | "How does property lookup work?"; "What is class?" |
 | 07 (async patterns) | Promises and Async/Await: states, microtasks, chaining, sequential vs parallel, pitfalls, debugging; Observables preview | "Promise vs Observable?"; "When async/await vs RxJS?"; "Promise.all vs allSettled?" |
 | 08 | Event delegation, debounce/throttle, reflow/repaint | "What is event delegation?"; "Debounce vs throttle?" |
+| 09 | Objects by reference, mutation, shallow/deep copy, immutable updates, OnPush | "Why did change detection not run?"; "Shallow vs deep copy?" |
+| 11 | Modules: named/default exports, dynamic import, cyclic deps, architecture | "When use dynamic import?"; "Why avoid cyclic imports?" |
+| 12 | Memory management, reachability, leak patterns, WeakMap, heap snapshots | "What causes memory leaks?"; "When use WeakMap?" |
 
 ## Concept → practice map
 
@@ -50,5 +56,8 @@
 | 06-prototypes-and-inheritance.md | `practice/04-this-binding.js`, `practice/06-prototype-chain.js` | Run this binding; run prototype/class demo |
 | 07-async-patterns.md | `practice/07-promises-async-await.js`, `practice/07-observable-preview.js` | Run Promise/async (includes microtask order, parallel vs sequential, Observables teaser) and full Observable preview |
 | 08-performance-fundamentals.md | `practice/08-debounce-throttle.js` | Run; observe debounce vs throttle timing |
+| 09-objects-reference-mutation-copying.md | `practice/09-objects-reference-mutation.js` | Run; value vs reference, shallow/deep copy, immutable updates |
+| 11-modules.md | `practice/11-modules/main.js` | Run with `node practice/11-modules/main.js`; named/default exports, dynamic import |
+| 12-memory-management-gc.md | `practice/12-memory-leak-patterns.js` | Run; reachability, WeakMap, leak patterns (see theory for DevTools) |
 
 Run any practice file with: `node practice/<filename>.js` (from this directory).
