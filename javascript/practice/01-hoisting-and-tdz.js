@@ -28,7 +28,9 @@ console.log("\n=== 4. const: same as let (TDZ) ===");
 const c = 30;
 console.log("c (after declaration):", c);
 
-console.log("\n=== 5. let without initializer: undefined after declaration ===");
+console.log(
+  "\n=== 5. let without initializer: undefined after declaration ===",
+);
 let d;
 console.log("d (after 'let d;'):", d);
 d = 40;
