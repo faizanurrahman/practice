@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: todo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/todo
+    username: postgres
+    password: ammi
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-use-at-least-256-bits-in-production-please-change-this-secret-key-now}
+    access-token-minutes: 15
+    refresh-token-days: 14
+  cors:
+    allowed-origins: "http://localhost:5173,http://localhost:4200"
+  expiry-scan-ms: 60000
