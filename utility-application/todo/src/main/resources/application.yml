@@ -15,8 +15,28 @@ spring:
           time_zone: UTC
   flyway:
     enabled: true
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 26MB
+
+# Optional: set spring.data.redis.host (and port) for Redis-backed presence; without Redis, in-memory adapters apply.
+# Optional: spring.elasticsearch.uris — register a @Component implementing TodoElasticsearchSearchDelegate to use ES; else JPA.
 
 app:
+  parity:
+    separate-worker-app: false
+  storage:
+    mode: local
+    local-root: ${java.io.tmpdir}/todo-objects
+    minio:
+      endpoint: http://localhost:9000
+      access-key: minioadmin
+      secret-key: minioadmin
+      bucket: todo
+      region: us-east-1
+      secure: false
+      presign-expiry-seconds: 900
   jwt:
     secret: ${JWT_SECRET:change-me-use-at-least-256-bits-in-production-please-change-this-secret-key-now}
     access-token-minutes: 15
@@ -24,3 +44,18 @@ app:
   cors:
     allowed-origins: "http://localhost:5173,http://localhost:4200"
   expiry-scan-ms: 60000
+  outbox-relay-ms: 2000
+  outbox-batch-size: 50
+  outbox-backoff-seconds: 30
+  jobs:
+    mode: jobrunr
+  presence:
+    cleanup-delay-ms: 60000
+
+jobrunr:
+  background-job-server:
+    enabled: true
+  dashboard:
+    enabled: true
+  database:
+    type: sql

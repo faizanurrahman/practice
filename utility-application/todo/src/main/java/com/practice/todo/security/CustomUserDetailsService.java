@@ -1,6 +1,6 @@
 package com.practice.todo.security;
 
-import com.practice.todo.user.UserRepository;
+import com.practice.todo.modules.user.application.port.UserRepositoryPort;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-	private final UserRepository userRepository;
+	private final UserRepositoryPort userRepository;
 
 	@Override
 	@Transactional(readOnly = true)

@@ -4,7 +4,7 @@ Spring Boot API with PostgreSQL, Flyway, JWT access + refresh tokens, projects, 
 
 ## Prerequisites
 
-- Java 17+
+- Java 21+
 - Docker (for local PostgreSQL), or your own Postgres matching `application.yml`
 
 ## Run PostgreSQL
@@ -13,7 +13,7 @@ Spring Boot API with PostgreSQL, Flyway, JWT access + refresh tokens, projects, 
 docker compose up -d
 ```
 
-Default credentials match [application.yml](src/main/resources/application.yml): database `todo`, user `todo`, password `todo`.
+Default credentials match [application.yml](src/main/resources/application.yml): database `todo`, user `postgres`, password `ammi`.
 
 ## Run the application
 
@@ -30,6 +30,13 @@ CI-friendly smoke tests use H2 (`src/test/resources/application-test.yml`, profi
 ./gradlew test
 ```
 
+## Docs
+
+- Architecture overview: [ARCHITECTURE.md](ARCHITECTURE.md)
+- API examples: [API_EXAMPLES.md](API_EXAMPLES.md)
+- Module API map: [MODULE_API_MAP.md](MODULE_API_MAP.md)
+- Demo dataset: [demo-data.sql](demo-data.sql)
+
 ## API overview
 
 | Method | Path | Notes |
@@ -39,13 +46,17 @@ CI-friendly smoke tests use H2 (`src/test/resources/application-test.yml`, profi
 | POST | `/api/auth/refresh` | Body: `refreshToken` (rotates refresh token) |
 | POST | `/api/auth/logout` | Body: `refreshToken` (revokes) |
 | GET/PATCH | `/api/users/me` | Onboarding: `PATCH` with `{ "onboardingComplete": true }` |
-| CRUD | `/api/projects` | Owner-scoped |
+| GET/POST | `/api/workspaces` | Workspaces list + create |
+| GET | `/api/workspaces/{id}` | Workspace details |
+| CRUD | `/api/projects` | Workspace-scoped projects |
 | GET/POST | `/api/projects/{id}/tasks` | Query `parentTaskId` for children; omit for roots |
 | GET/PATCH/DELETE | `/api/tasks/{id}` | Text tasks; soft-delete cascades to subtree |
 | GET | `/api/tasks/{id}/subtree?maxDepth=` | |
 | POST | `/api/tasks/{id}/complete` | Fails if any descendant is not `DONE` |
 | POST | `/api/tasks/{id}/move` | Body: `newParentTaskId` (null = root) |
 | POST | `/api/projects/{id}/tasks/reorder?parentTaskId=` | Body: `orderedTaskIds` |
+| GET/POST | `/api/tasks/{id}/attachments` | Upload/list attachments |
+| GET | `/api/attachments/{id}/download` | Download attachment |
 | GET | `/api/notifications` | |
 | POST | `/api/notifications/{id}/read` | |
 

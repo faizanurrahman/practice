@@ -1,6 +1,6 @@
 package com.practice.todo.security;
 
-import com.practice.todo.user.User;
+import com.practice.todo.modules.user.domain.User;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
